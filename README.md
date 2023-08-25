@@ -1,32 +1,24 @@
-# Turborepo react-native starter
+# poc-dockerfile-monorepo-next-expo
 
-This is an official starter Turborepo.
+POC para gerar dockerfile para produção com foco no monorepo.
 
-## Using this example
+> O Foco e no build docker do next então para este teste nao foi tentado executar o projeto `native`
 
-Run the following command:
 
+- Construir imagem
 ```sh
-npx create-turbo@latest -e with-react-native-web
+docker build -t turbodocker .
+
 ```
 
-## What's inside?
 
-This Turborepo includes the following packages/apps:
+- Rodando imagem
+```sh
+docker run -d -p 3001:3000 turbodocker
+```
 
-### Apps and Packages
+### Referencias
 
-- `native`: a [react-native](https://reactnative.dev/) app built with [expo](https://docs.expo.dev/)
-- `web`: a [Next.js](https://nextjs.org/) app built with [react-native-web](https://necolas.github.io/react-native-web/)
-- `ui`: a stub [react-native](https://reactnative.dev/) component library shared by both `web` and `native` applications
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- https://medium.com/geekculture/optimally-dockerizing-nextjs-application-and-lessons-learned-af1833e7da46
+- https://turbo.build/repo/docs/handbook/deploying-with-docker
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [Expo](https://docs.expo.dev/) for native development
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [Prettier](https://prettier.io) for code formatting
