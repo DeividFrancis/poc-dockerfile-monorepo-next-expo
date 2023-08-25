@@ -11,11 +11,9 @@ export interface ButtonProps {
   onClick?: (event: GestureResponderEvent) => void;
 }
 
-export function Button({ text, onClick }: ButtonProps) {
+export function Button(props: React.ComponentProps<"button">) {
   return (
-    <TouchableOpacity style={styles.button} onPress={onClick}>
-      <Text style={styles.text}>{text}</Text>
-    </TouchableOpacity>
+    <button style={styles.button} {...props}/>
   );
 }
 
@@ -30,8 +28,6 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     fontSize: "15px",
     backgroundColor: "#2f80ed",
-  },
-  text: {
     color: "white",
   },
 });
